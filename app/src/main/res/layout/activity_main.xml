@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -17,25 +17,28 @@
         android:fontFamily="monospace"
         android:text="Hello."
         android:textAlignment="center"
-        android:textSize="28sp"
+        android:textColor="#FFDB6B73"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textView1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintVertical_bias="0.993" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="240dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:fontFamily="monospace"
         android:text="I am a lab rat🐭"
-        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
