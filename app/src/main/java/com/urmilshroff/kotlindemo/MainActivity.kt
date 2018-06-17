@@ -14,21 +14,4 @@ class MainActivity:AppCompatActivity()
         setContentView(R.layout.activity_main)
     }
 
-//    override fun onBackPressed()
-//    {
-//
-//        val builder=AlertDialog.Builder(this@MainActivity)
-//
-//        builder.setTitle(R.string.app_name)
-//
-//        builder.setMessage("Are you sure you want to quit?")
-//                .setCancelable(true)
-//                .setPositiveButton("Quit",DialogInterface.OnClickListener {dialog,id->
-//                .setNegativeButton("Cancel",DialogInterface.OnClickListener {dialog,id-> dialog.cancel()})
-//
-//        val alert=builder.create()
-//        alert.show()
-//
-//    }
-
 }
