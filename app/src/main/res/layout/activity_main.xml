@@ -17,7 +17,7 @@
         android:fontFamily="monospace"
         android:text="Hello."
         android:textAlignment="center"
-        android:textColor="#FFDB6B73"
+        android:textColor="@color/colorAccent"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textView1"
         app:layout_constraintEnd_toEndOf="parent"
