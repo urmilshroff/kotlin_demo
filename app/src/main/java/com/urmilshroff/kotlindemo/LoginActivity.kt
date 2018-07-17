@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 
 class LoginActivity:AppCompatActivity()
 {
+    val usernameIn
 
     override fun onCreate(savedInstanceState:Bundle?)
     {
