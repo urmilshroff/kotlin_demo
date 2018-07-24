@@ -9,6 +9,7 @@ import android.widget.Toast
 class LoginActivity:AppCompatActivity()
 {
     lateinit var usernameInput:EditText
+    lateinit var passwordInput:EditText
     val button1=findViewById<Button>(R.id.button1)
 
     override fun onCreate(savedInstanceState:Bundle?)
