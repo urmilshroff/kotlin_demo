@@ -1,5 +1,6 @@
 package com.urmilshroff.kotlindemo
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
@@ -9,8 +10,8 @@ import android.widget.Toast
 class LoginActivity:AppCompatActivity()
 {
     val button:Button=findViewById(R.id.button1)
-    lateinit var usernameInput:EditText=findViewById(R.id.editText1)
-    lateinit var passwordInput:EditText=findViewById(R.id.editText2)
+    var usernameInput:EditText=findViewById(R.id.editText1)
+    var passwordInput:EditText=findViewById(R.id.editText2)
 
     override fun onCreate(savedInstanceState:Bundle?)
     {
@@ -40,7 +41,11 @@ class LoginActivity:AppCompatActivity()
 
         else
         {
+            SharedPrefObj.setUsername(this@LoginActivity,usernameString)
             Toast.makeText(this,"Login successful!",Toast.LENGTH_SHORT).show()
+            val myIntent=Intent(this,MainActivity::class.java)
+            startActivity(myIntent)
+            finish()
         }
 
     }
