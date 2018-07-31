@@ -12,14 +12,14 @@ object SharedPrefObj
     fun getUsername(context:Context):String?
     {
         sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
-        return sharedPrefVar.getString("user_name",null) //key value pair
+        return sharedPrefVar.getString("userName",null) //key value pair
     }
 
     fun setUsername(context:Context,user:String?)
     {
         sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
         editor=sharedPrefVar.edit()
-        editor.putString("userName",user) //key value pair
+        editor.putString("userName",user) //variable name must be exactly the same
         editor.apply()
         editor.commit()
     }
@@ -28,7 +28,7 @@ object SharedPrefObj
     {
         sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
         editor=sharedPrefVar.edit()
-        editor.remove("user_name")
+        editor.remove("userName")
         editor.clear()
         editor.commit()
     }

@@ -9,25 +9,40 @@ import android.widget.Toast
 
 class LoginActivity:AppCompatActivity()
 {
-    val button:Button=findViewById(R.id.button1)
-    var usernameInput:EditText=findViewById(R.id.editText1)
-    var passwordInput:EditText=findViewById(R.id.editText2)
+    var button:Button
+    var usernameInput:EditText
+    var passwordInput:EditText
+    var usernameString:String
+    var passwordString:String
 
     override fun onCreate(savedInstanceState:Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        button.setOnClickListener()
+        button=findViewById(R.id.button1)
+        usernameInput=findViewById(R.id.editText1)
+        passwordInput=findViewById(R.id.editText2)
+
+        if(SharedPrefObj.getUsername(this@LoginActivity)!=null)
         {
-            onClick()
+            val skipLogin=Intent(this,MainActivity::class.java)
+            startActivity(skipLogin)
+        }
+
+        else
+        {
+            button.setOnClickListener()
+            {
+                onClick()
+            }
         }
     }
 
     private fun onClick()
     {
-        var usernameString:String=usernameInput.text.toString()
-        var passwordString:String=passwordInput.text.toString()
+        usernameString=usernameInput.text.toString()
+        passwordString=passwordInput.text.toString()
 
         if(usernameString.isEmpty())
         {
