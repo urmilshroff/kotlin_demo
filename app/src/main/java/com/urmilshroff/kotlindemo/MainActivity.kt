@@ -15,8 +15,8 @@ class MainActivity:AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        helloMessage=findViewById(R.id.textView1)
-        helloMessage.setText("Hi there, "+userName)
+        helloMessage=findViewById(R.id.textViewDesc)
+        helloMessage.setText("Hi there, $userName!")
     }
 
 }
