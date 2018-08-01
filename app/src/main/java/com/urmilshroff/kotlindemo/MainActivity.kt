@@ -7,15 +7,16 @@ import android.widget.TextView
 
 class MainActivity:AppCompatActivity()
 {
-    var helloMessage:TextView
+    lateinit var helloMessage:TextView
 
     override fun onCreate(savedInstanceState:Bundle?)
     {
+        val userName=SharedPrefObj.getUsername(this@MainActivity)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         helloMessage=findViewById(R.id.textView1)
-        helloMessage.setText("")
+        helloMessage.setText("Hi there, "+userName)
     }
 
 }

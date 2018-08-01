@@ -9,11 +9,11 @@ import android.widget.Toast
 
 class LoginActivity:AppCompatActivity()
 {
-    var button:Button
-    var usernameInput:EditText
-    var passwordInput:EditText
-    var usernameString:String
-    var passwordString:String
+    lateinit var button:Button
+    lateinit var usernameInput:EditText
+    lateinit var passwordInput:EditText
+    lateinit var usernameString:String
+    lateinit var passwordString:String
 
     override fun onCreate(savedInstanceState:Bundle?)
     {
@@ -28,6 +28,7 @@ class LoginActivity:AppCompatActivity()
         {
             val skipLogin=Intent(this,MainActivity::class.java)
             startActivity(skipLogin)
+            finish()
         }
 
         else
