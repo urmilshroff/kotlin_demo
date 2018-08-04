@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity:AppCompatActivity()
 {
@@ -20,9 +21,6 @@ class LoginActivity:AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        button=findViewById(R.id.button1)
-        usernameInput=findViewById(R.id.editText1)
-        passwordInput=findViewById(R.id.editText2)
 
         if(SharedPrefObj.getUsername(this@LoginActivity)!=null)
         {
@@ -33,7 +31,7 @@ class LoginActivity:AppCompatActivity()
 
         else
         {
-            button.setOnClickListener()
+            button1.setOnClickListener()
             {
                 onClick()
             }
