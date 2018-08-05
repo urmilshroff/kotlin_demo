@@ -33,17 +33,17 @@ object SharedPrefObj
         editor.commit()
     }
 
-    fun setImage(context:Context,value:String)
-    {
-        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
-        editor=sharedPrefVar.edit()
-        editor.putString("Image placeholder",value)
-        editor.commit()
-    }
-
-    fun getImage(context:Context):String?
-    {
-        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
-        return sharedPrefVar.getString("") //fix
-    }
+//    fun setImage(context:Context,value:String)
+//    {
+//        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
+//        editor=sharedPrefVar.edit()
+//        editor.putString("Image placeholder",value)
+//        editor.commit()
+//    }
+//
+//    fun getImage(context:Context):String?
+//    {
+//        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
+//        return sharedPrefVar.getString("") //fix
+//    }
 }

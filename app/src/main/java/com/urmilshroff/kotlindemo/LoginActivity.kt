@@ -24,6 +24,7 @@ class LoginActivity:AppCompatActivity()
 
         if(SharedPrefObj.getUsername(this@LoginActivity)!=null)
         {
+            Toast.makeText(this,"Account already exists",Toast.LENGTH_SHORT).show()
             val skipLogin=Intent(this,MainActivity::class.java)
             startActivity(skipLogin)
             finish()
@@ -31,8 +32,10 @@ class LoginActivity:AppCompatActivity()
 
         else
         {
-            button1.setOnClickListener()
+            val buttonLLogin=findViewById<Button>(R.id.buttonLogin)
+            buttonLogin?.setOnClickListener()
             {
+                Toast.makeText(this,"Button click test",Toast.LENGTH_SHORT).show()
                 onClick()
             }
         }

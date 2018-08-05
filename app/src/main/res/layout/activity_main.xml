@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textViewDesc"
+        android:id="@+id/textViewHello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -39,16 +39,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:elevation="3dp"
-        app:rippleColor="@color/colorPrimary"
-        app:srcCompat="@color/colorAccent"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="455dp" />
 
 </android.support.constraint.ConstraintLayout>
