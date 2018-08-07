@@ -32,7 +32,7 @@ class LoginActivity:AppCompatActivity()
 
         else
         {
-            buttonLogin.setOnClickListener(View.OnClickListener {onClick()})
+            buttonLogin.setOnClickListener({onClick()})
         }
     }
 

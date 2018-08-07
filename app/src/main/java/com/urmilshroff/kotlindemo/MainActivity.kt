@@ -16,5 +16,4 @@ class MainActivity:AppCompatActivity()
 
         textViewHello.setText("Hi there, $userName!")
     }
-
 }
