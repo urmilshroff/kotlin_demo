@@ -2,7 +2,9 @@ package com.urmilshroff.kotlindemo
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -11,8 +13,6 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity:AppCompatActivity()
 {
     lateinit var button:Button
-    lateinit var usernameInput:EditText
-    lateinit var passwordInput:EditText
     lateinit var usernameString:String
     lateinit var passwordString:String
 
@@ -32,19 +32,14 @@ class LoginActivity:AppCompatActivity()
 
         else
         {
-            val buttonLLogin=findViewById<Button>(R.id.buttonLogin)
-            buttonLogin?.setOnClickListener()
-            {
-                Toast.makeText(this,"Button click test",Toast.LENGTH_SHORT).show()
-                onClick()
-            }
+            buttonLogin.setOnClickListener(View.OnClickListener {onClick()})
         }
     }
 
     private fun onClick()
     {
-        usernameString=usernameInput.text.toString()
-        passwordString=passwordInput.text.toString()
+        usernameString=editTextUsername.text.toString()
+        passwordString=editTextPassword.text.toString()
 
         if(usernameString.isEmpty())
         {
