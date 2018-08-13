@@ -24,11 +24,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewKotlin"
         app:layout_constraintVertical_bias="0.06" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageViewKotlin"
         android:layout_width="171dp"
         android:layout_height="166dp"
         android:layout_marginEnd="8dp"

@@ -2,11 +2,8 @@ package com.urmilshroff.kotlindemo
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -18,13 +15,14 @@ class LoginActivity:AppCompatActivity()
 
     override fun onCreate(savedInstanceState:Bundle?)
     {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState) //don't put anything before this line!
         setContentView(R.layout.activity_login)
-
 
         if(SharedPrefObj.getUsername(this@LoginActivity)!=null)
         {
-            Toast.makeText(this,"Account already exists",Toast.LENGTH_SHORT).show()
+            val username=SharedPrefObj.getUsername(this@LoginActivity)
+            Toast.makeText(this,"Welcome back, $username",Toast.LENGTH_SHORT).show()
+
             val skipLogin=Intent(this,MainActivity::class.java)
             startActivity(skipLogin)
             finish()
@@ -48,17 +46,17 @@ class LoginActivity:AppCompatActivity()
 
         else if(passwordString.isEmpty())
         {
-            Toast.makeText(this,"Please enter a username",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Please enter a password",Toast.LENGTH_SHORT).show()
         }
 
         else
         {
             SharedPrefObj.setUsername(this@LoginActivity,usernameString) //obj.function()!
             Toast.makeText(this,"Login successful!",Toast.LENGTH_SHORT).show()
+
             val myIntent=Intent(this,MainActivity::class.java)
             startActivity(myIntent)
             finish()
         }
-
     }
 }
