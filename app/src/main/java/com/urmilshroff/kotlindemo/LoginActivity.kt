@@ -11,7 +11,7 @@ class LoginActivity:AppCompatActivity()
 {
     lateinit var button:Button
     lateinit var usernameString:String
-    lateinit var passwordString:String
+    lateinit var emailString:String
 
     override fun onCreate(savedInstanceState:Bundle?)
     {
@@ -37,21 +37,22 @@ class LoginActivity:AppCompatActivity()
     private fun onClick()
     {
         usernameString=editTextUsername.text.toString()
-        passwordString=editTextPassword.text.toString()
+        emailString=editTextEmail.text.toString()
 
         if(usernameString.isEmpty())
         {
             Toast.makeText(this,"Please enter a username",Toast.LENGTH_SHORT).show()
         }
 
-        else if(passwordString.isEmpty())
+        else if(emailString.isEmpty())
         {
-            Toast.makeText(this,"Please enter a password",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Please enter an email address",Toast.LENGTH_SHORT).show()
         }
 
         else
         {
             SharedPrefObj.setUsername(this@LoginActivity,usernameString) //obj.function()!
+            SharedPrefObj.setEmail(this@LoginActivity,emailString)
             Toast.makeText(this,"Login successful!",Toast.LENGTH_SHORT).show()
 
             val myIntent=Intent(this,MainActivity::class.java)
