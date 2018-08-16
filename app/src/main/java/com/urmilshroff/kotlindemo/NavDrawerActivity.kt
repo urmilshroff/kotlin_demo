@@ -1,3 +1,11 @@
+import android.os.Bundle
+import android.support.design.widget.NavigationView
+import android.support.v4.view.GravityCompat
+import android.support.v7.app.AppCompatActivity
+import com.urmilshroff.kotlindemo.R
+import com.urmilshroff.kotlindemo.R.id.drawer_layout
+import com.urmilshroff.kotlindemo.R.id.nav_view
+
 <<<<<<< HEAD
 //package com.urmilshroff.kotlindemo
 //
