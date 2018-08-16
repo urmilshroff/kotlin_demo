@@ -23,7 +23,7 @@ class LoginActivity:AppCompatActivity()
             val username=SharedPrefObj.getUsername(this@LoginActivity)
             Toast.makeText(this,"Welcome back, $username",Toast.LENGTH_SHORT).show()
 
-            val skipLogin=Intent(this,MainActivity::class.java)
+            val skipLogin=Intent(this,NavDrawerActivity::class.java)
             startActivity(skipLogin)
             finish()
         }
@@ -55,7 +55,7 @@ class LoginActivity:AppCompatActivity()
             SharedPrefObj.setEmail(this@LoginActivity,emailString)
             Toast.makeText(this,"Login successful!",Toast.LENGTH_SHORT).show()
 
-            val myIntent=Intent(this,MainActivity::class.java)
+            val myIntent=Intent(this,NavDrawerActivity::class.java)
             startActivity(myIntent)
             finish()
         }

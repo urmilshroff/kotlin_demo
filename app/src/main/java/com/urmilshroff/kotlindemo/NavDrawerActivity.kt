@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_nav_drawer.*
 import kotlinx.android.synthetic.main.app_bar_nav_drawer.*
+import kotlinx.android.synthetic.main.nav_header_nav_drawer.*
 
 class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
 
@@ -28,6 +29,9 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        val email=SharedPrefObj.getEmail(this@NavDrawerActivity)
+        textViewEmail.setText(email)
     }
 
     override fun onBackPressed() {
