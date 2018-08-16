@@ -11,7 +11,7 @@ class MainActivity:AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val username=SharedPrefObj.getUsername(this@MainActivity)
+        val username:String?=SharedPrefObj.getUsername(this@MainActivity)
 
         textViewHello.setText("Hi there, $username!")
     }

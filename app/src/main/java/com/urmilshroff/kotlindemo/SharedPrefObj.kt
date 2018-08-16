@@ -9,11 +9,11 @@ object SharedPrefObj
     lateinit var sharedPrefVar:SharedPreferences
     lateinit var editor:SharedPreferences.Editor
 
-    fun setUsername(context:Context,user:String?)
+    fun setUsername(context:Context,username:String?)
     {
         sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
         editor=sharedPrefVar.edit()
-        editor.putString("username",user) //key value pair
+        editor.putString("username",username) //key value pair
         editor.apply()
         editor.commit()
     }
@@ -21,14 +21,14 @@ object SharedPrefObj
     fun getUsername(context:Context):String?
     {
         sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
-        return sharedPrefVar.getString("username",null)
+        return sharedPrefVar.getString("username",null) //key value pair
     }
 
-    fun setEmail(context:Context,emId:String?)
+    fun setEmail(context:Context,email:String?)
     {
         sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
         editor=sharedPrefVar.edit()
-        editor.putString("email",emId)
+        editor.putString("email",email)
         editor.apply()
         editor.commit()
     }
@@ -48,7 +48,7 @@ object SharedPrefObj
 //        editor.commit()
 //    }
 
-//    fun setImage(context:Context,value:String)
+//    fun setImage(context:Context,image:String)
 //    {
 //        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
 //        editor=sharedPrefVar.edit()
