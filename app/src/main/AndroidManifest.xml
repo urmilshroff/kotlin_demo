@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
 
+<<<<<<< HEAD
         <activity android:name=".LoginActivity"> </activity>
 
         <activity
@@ -32,6 +33,11 @@
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+=======
+        <activity android:name=".LoginActivity">
+        </activity>
+
+>>>>>>> parent of efb2060... Created navigation drawer
     </application>
 
 </manifest>
