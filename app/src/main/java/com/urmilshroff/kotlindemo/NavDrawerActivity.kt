@@ -76,24 +76,19 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
         // Handle navigation view item clicks here.
         when(item.itemId)
         {
+            R.id.nav_home->
+            {
+                Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
+            }
+
             R.id.nav_camera->
             {
                 Toast.makeText(this,"Camera",Toast.LENGTH_SHORT).show()
             }
 
-            R.id.nav_gallery->
+            R.id.nav_about->
             {
-                Toast.makeText(this,"Gallery",Toast.LENGTH_SHORT).show()
-            }
-
-            R.id.nav_slideshow->
-            {
-                Toast.makeText(this,"Slideshow",Toast.LENGTH_SHORT).show()
-            }
-
-            R.id.nav_manage->
-            {
-                Toast.makeText(this,"Manage",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"About",Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_share->

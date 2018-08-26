@@ -53,6 +53,7 @@ class LoginActivity:AppCompatActivity()
         {
             SharedPrefObj.setUsername(this@LoginActivity,usernameString) //obj.fun(params)
             SharedPrefObj.setEmail(this@LoginActivity,emailString)
+
             Toast.makeText(this,"Login successful!",Toast.LENGTH_SHORT).show()
 
             val myIntent=Intent(this,NavDrawerActivity::class.java)
