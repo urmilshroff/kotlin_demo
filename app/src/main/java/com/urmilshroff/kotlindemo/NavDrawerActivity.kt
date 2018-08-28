@@ -2,6 +2,7 @@ package com.urmilshroff.kotlindemo
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -74,11 +75,17 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
     override fun onNavigationItemSelected(item:MenuItem):Boolean
     {
         // Handle navigation view item clicks here.
+
+        var fragment:Fragment?=null
+
         when(item.itemId)
         {
             R.id.nav_home->
             {
                 Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
+                fragment=HomeFragment()
+                val fragmentManager=supportFragmentManager
+                fragmentManager.beginTransaction().replace(R.id.frame_container,fragment).commit()
             }
 
             R.id.nav_camera->
@@ -101,6 +108,12 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
                 Toast.makeText(this,"Send",Toast.LENGTH_SHORT).show()
             }
         }
+
+//        if (fragment!=null)
+//        {
+//            val fragmentManager=supportFragmentManager
+//            fragmentManager.beginTransaction().replace(R.id.frame_container,fragment).commit()
+//        }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
