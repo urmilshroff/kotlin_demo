@@ -47,7 +47,7 @@ object SharedPrefObj
 //        editor.clear()
 //        editor.commit()
 //    }
-
+//
 //    fun setImage(context:Context,image:String)
 //    {
 //        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
