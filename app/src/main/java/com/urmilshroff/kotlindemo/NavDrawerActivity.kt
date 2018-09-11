@@ -1,8 +1,8 @@
 package com.urmilshroff.kotlindemo
 
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -12,8 +12,13 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_nav_drawer.*
 import kotlinx.android.synthetic.main.app_bar_nav_drawer.*
 
-class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener
+class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener,HomeFragment.OnFragmentInteractionListener, CameraFragment.OnFragmentInteractionListener,AboutFragment.OnFragmentInteractionListener
 {
+    override fun onFragmentInteraction(uri:Uri)
+    {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun onCreate(savedInstanceState:Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -76,26 +81,33 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
     {
         // Handle navigation view item clicks here.
 
-        var fragment:Fragment?=null
-
         when(item.itemId)
         {
             R.id.nav_home->
             {
-                Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
-                fragment=HomeFragment()
-                val fragmentManager=supportFragmentManager
-                fragmentManager.beginTransaction().replace(R.id.frame_container,fragment).commit()
+                Toast.makeText(this,"Home fragment",Toast.LENGTH_SHORT).show()
+
+                val homeFragment=HomeFragment.newInstance()
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container,homeFragment).commit()
             }
 
             R.id.nav_camera->
             {
-                Toast.makeText(this,"Camera",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Camera fragment",Toast.LENGTH_SHORT).show()
+
+                val cameraFragment=CameraFragment.newInstance()
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container,cameraFragment).commit()
             }
 
             R.id.nav_about->
             {
-                Toast.makeText(this,"About",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"About fragment",Toast.LENGTH_SHORT).show()
+
+                val aboutFragment=AboutFragment.newInstance()
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container,aboutFragment).commit()
             }
 
             R.id.nav_share->
@@ -108,12 +120,6 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
                 Toast.makeText(this,"Send",Toast.LENGTH_SHORT).show()
             }
         }
-
-//        if (fragment!=null)
-//        {
-//            val fragmentManager=supportFragmentManager
-//            fragmentManager.beginTransaction().replace(R.id.frame_container,fragment).commit()
-//        }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true

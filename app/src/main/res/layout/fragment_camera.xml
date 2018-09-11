@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".CameraFragment">
 
     <TextView
         android:id="@+id/textViewDesc"
@@ -13,7 +13,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:fontFamily="monospace"
-        android:text="Home Fragment🏠"
+        android:text="Camera Fragment📸"
         android:textAlignment="center"
         android:textSize="20sp" />
 
