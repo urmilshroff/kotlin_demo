@@ -30,7 +30,7 @@ class LoginActivity:AppCompatActivity()
 
         else
         {
-            buttonLogin.setOnClickListener({onClick()}) //what's up with the braces?
+            buttonLogin.setOnClickListener({onClick()})
         }
     }
 
