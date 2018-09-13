@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_home.*
+import android.widget.TextView
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -44,10 +44,12 @@ class HomeFragment:Fragment()
                               savedInstanceState:Bundle?):View?
     {
         // Inflate the layout for this fragment
-        val username=SharedPrefObj.getUsername(activity)
+        val username=SharedPrefObj.getUsername(this.activity!!)
         super.onCreate(savedInstanceState)
 
-        textViewHello.setText("Hi there, $username!")
+        val textViewHello:TextView=view!!.findViewById(R.id.textViewHello)
+
+        textViewHello.text="Hi there, $username!"
         return inflater.inflate(R.layout.fragment_home,container,false)
     }
 
