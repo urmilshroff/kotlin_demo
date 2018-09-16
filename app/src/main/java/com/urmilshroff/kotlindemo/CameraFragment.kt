@@ -26,16 +26,12 @@ class CameraFragment:Fragment()
             param1=it.getString(ARG_PARAM1)
             param2=it.getString(ARG_PARAM2)
         }
-
-        floatingActionButtonLaunchCamera?.setOnClickListener {view->
-            Snackbar.make(view,"Camera fragment",Snackbar.LENGTH_SHORT)
-                    .setAction("Action",null).show()
-        }
     }
 
     override fun onCreateView(inflater:LayoutInflater,container:ViewGroup?,
                               savedInstanceState:Bundle?):View?
     {
+        floatingActionButtonLaunchCamera.setOnClickListener{onClick()}
         return inflater.inflate(R.layout.fragment_camera,container,false)
     }
 
@@ -63,9 +59,16 @@ class CameraFragment:Fragment()
         listener=null
     }
 
+    private fun onClick()
+    {
+        floatingActionButtonLaunchCamera.setOnClickListener {view->
+            Snackbar.make(view,"Camera FAB clicked",Snackbar.LENGTH_LONG)
+                    .setAction("Action",null).show()
+        }
+    }
+
     interface OnFragmentInteractionListener
     {
-        // TODO: Update argument type and name
         fun onFragmentInteraction(uri:Uri)
     }
 
