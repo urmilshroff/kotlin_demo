@@ -27,7 +27,7 @@ class CameraFragment:Fragment()
             param2=it.getString(ARG_PARAM2)
         }
 
-        floatingActionButtonLaunchCamera.setOnClickListener {view->
+        floatingActionButtonLaunchCamera?.setOnClickListener {view->
             Snackbar.make(view,"Camera fragment",Snackbar.LENGTH_SHORT)
                     .setAction("Action",null).show()
         }
