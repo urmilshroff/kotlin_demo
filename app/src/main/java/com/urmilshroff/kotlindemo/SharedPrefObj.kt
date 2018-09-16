@@ -21,7 +21,7 @@ object SharedPrefObj
     fun getUsername(context:Context):String?
     {
         sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
-        return sharedPrefVar.getString("username",null) //key value pair
+        return sharedPrefVar.getString("username",null)
     }
 
     fun setEmail(context:Context,email:String?)
@@ -39,15 +39,15 @@ object SharedPrefObj
         return sharedPrefVar.getString("email",null)
     }
 
-//    fun destroyData(context:Context)
-//    {
-//        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
-//        editor=sharedPrefVar.edit()
-//        editor.remove("username")
-//        editor.clear()
-//        editor.commit()
-//    }
-//
+    fun destroyData(context:Context)
+    {
+        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
+        editor=sharedPrefVar.edit()
+        editor.remove("username")
+        editor.clear()
+        editor.commit()
+    }
+
 //    fun setImage(context:Context,image:String)
 //    {
 //        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
@@ -59,6 +59,6 @@ object SharedPrefObj
 //    fun getImage(context:Context):String?
 //    {
 //        sharedPrefVar=PreferenceManager.getDefaultSharedPreferences(context)
-//        return sharedPrefVar.getString("") //fix
+//        return sharedPrefVar.getString()
 //    }
 }

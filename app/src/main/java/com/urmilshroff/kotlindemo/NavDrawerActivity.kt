@@ -16,7 +16,7 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
 {
     override fun onFragmentInteraction(uri:Uri)
     {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun onCreate(savedInstanceState:Bundle?)
@@ -24,11 +24,6 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nav_drawer)
         setSupportActionBar(toolbar)
-
-//        fab.setOnClickListener {view->
-//            Snackbar.make(view,"Replace with your own action",Snackbar.LENGTH_LONG)
-//                    .setAction("Action",null).show()
-//        }
 
         val toggle=ActionBarDrawerToggle(
                 this,drawer_layout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close)
@@ -39,11 +34,6 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
 
         val username:String?=SharedPrefObj.getUsername(this@NavDrawerActivity)
         val email:String?=SharedPrefObj.getEmail(this@NavDrawerActivity)
-
-//        Toast.makeText(this,"$username $email",Toast.LENGTH_SHORT).show()
-
-//        textViewUsername.setText("Hello World") //setText not wworking
-//        textViewEmail.setText("demo@kotlin.com")
     }
 
     override fun onBackPressed()
@@ -60,16 +50,12 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
 
     override fun onCreateOptionsMenu(menu:Menu):Boolean
     {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.nav_drawer,menu)
         return true
     }
 
     override fun onOptionsItemSelected(item:MenuItem):Boolean
     {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         when(item.itemId)
         {
             R.id.action_settings->return true
@@ -79,8 +65,6 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
 
     override fun onNavigationItemSelected(item:MenuItem):Boolean
     {
-        // Handle navigation view item clicks here.
-
         when(item.itemId)
         {
             R.id.nav_home->

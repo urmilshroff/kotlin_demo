@@ -15,7 +15,7 @@ class LoginActivity:AppCompatActivity()
 
     override fun onCreate(savedInstanceState:Bundle?)
     {
-        super.onCreate(savedInstanceState) //don't put anything before this line!
+        super.onCreate(savedInstanceState) //never put anything before this line!
         setContentView(R.layout.activity_login)
 
         if(SharedPrefObj.getUsername(this@LoginActivity)!=null)
