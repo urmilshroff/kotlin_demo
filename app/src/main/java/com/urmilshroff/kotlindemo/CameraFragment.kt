@@ -34,11 +34,11 @@ class CameraFragment:Fragment()
         return inflater.inflate(R.layout.fragment_camera,container,false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    override fun onViewCreated(view:View,savedInstanceState:Bundle?)
     {
-        super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(view,savedInstanceState)
 
-        floatingActionButtonLaunchCamera?.setOnClickListener {view->
+        floatingActionButtonLaunchCamera?.setOnClickListener{view->
                 Snackbar.make(view,"Camera FAB clicked",Snackbar.LENGTH_LONG)
                         .setAction("Action",null).show()
             }

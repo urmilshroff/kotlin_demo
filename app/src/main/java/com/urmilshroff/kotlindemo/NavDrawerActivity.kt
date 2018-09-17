@@ -34,6 +34,10 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
 
         val username:String?=SharedPrefObj.getUsername(this@NavDrawerActivity)
         val email:String?=SharedPrefObj.getEmail(this@NavDrawerActivity)
+
+        val homeFragment=HomeFragment.newInstance()
+        val transaction=supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_container,homeFragment).commit()
     }
 
     override fun onBackPressed()

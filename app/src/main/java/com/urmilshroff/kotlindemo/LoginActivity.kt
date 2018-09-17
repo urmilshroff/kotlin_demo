@@ -18,20 +18,7 @@ class LoginActivity:AppCompatActivity()
         super.onCreate(savedInstanceState) //never put anything before this line!
         setContentView(R.layout.activity_login)
 
-        if(SharedPrefObj.getUsername(this@LoginActivity)!=null)
-        {
-            val username=SharedPrefObj.getUsername(this@LoginActivity)
-            Toast.makeText(this,"Welcome back, $username",Toast.LENGTH_SHORT).show()
-
-            val skipLogin=Intent(this,NavDrawerActivity::class.java)
-            startActivity(skipLogin)
-            finish()
-        }
-
-        else
-        {
-            buttonLogin.setOnClickListener({onClick()})
-        }
+        buttonLogin.setOnClickListener({onClick()})
     }
 
     private fun onClick()
