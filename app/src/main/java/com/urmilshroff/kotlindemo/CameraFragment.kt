@@ -31,8 +31,17 @@ class CameraFragment:Fragment()
     override fun onCreateView(inflater:LayoutInflater,container:ViewGroup?,
                               savedInstanceState:Bundle?):View?
     {
-        floatingActionButtonLaunchCamera.setOnClickListener{onClick()}
         return inflater.inflate(R.layout.fragment_camera,container,false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
+        super.onViewCreated(view, savedInstanceState)
+
+        floatingActionButtonLaunchCamera?.setOnClickListener {view->
+                Snackbar.make(view,"Camera FAB clicked",Snackbar.LENGTH_LONG)
+                        .setAction("Action",null).show()
+            }
     }
 
     fun onButtonPressed(uri:Uri)
@@ -61,10 +70,7 @@ class CameraFragment:Fragment()
 
     private fun onClick()
     {
-        floatingActionButtonLaunchCamera.setOnClickListener {view->
-            Snackbar.make(view,"Camera FAB clicked",Snackbar.LENGTH_LONG)
-                    .setAction("Action",null).show()
-        }
+
     }
 
     interface OnFragmentInteractionListener

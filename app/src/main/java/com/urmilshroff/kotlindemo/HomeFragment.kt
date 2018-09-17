@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_home.*
+import android.widget.TextView
 
 
 private const val ARG_PARAM1="param1"
@@ -34,10 +34,13 @@ class HomeFragment:Fragment()
     {
         super.onCreate(savedInstanceState)
 
+        val rootView=inflater.inflate(R.layout.fragment_home,container,false)
+        val textViewHello:TextView=rootView.findViewById(R.id.textViewHello) as TextView
         val username=SharedPrefObj.getUsername(this.activity!!)
+
         textViewHello.text="Hi there, $username!"
 
-        return inflater.inflate(R.layout.fragment_home,container,false)
+        return rootView
     }
 
     fun onButtonPressed(uri:Uri)
