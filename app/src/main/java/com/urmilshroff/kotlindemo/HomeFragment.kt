@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
 private const val ARG_PARAM1="param1"
@@ -30,17 +30,17 @@ class HomeFragment:Fragment()
     }
 
     override fun onCreateView(inflater:LayoutInflater,container:ViewGroup?,
-                              savedInstanceState:Bundle?):View?
+                              savedInstanceState:Bundle?):View? //try not to put any code here
     {
-        super.onCreate(savedInstanceState)
+        return inflater.inflate(R.layout.fragment_home,container,false)
+    }
 
-        val rootView=inflater.inflate(R.layout.fragment_home,container,false)
-        val textViewHello:TextView=rootView.findViewById(R.id.textViewHello) as TextView
+    override fun onViewCreated(view:View,savedInstanceState:Bundle?) //everything here is executed once the actual fragment has been created, so put all logic/code here
+    {
+        super.onViewCreated(view,savedInstanceState)
+
         val username=SharedPrefObj.getUsername(this.activity!!)
-
-        textViewHello.text="Hi there, $username!"
-
-        return rootView
+        textViewHello.text="Welcome, $username!"
     }
 
     fun onButtonPressed(uri:Uri)

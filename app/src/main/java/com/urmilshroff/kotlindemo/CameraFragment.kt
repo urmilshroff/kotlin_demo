@@ -68,11 +68,6 @@ class CameraFragment:Fragment()
         listener=null
     }
 
-    private fun onClick()
-    {
-
-    }
-
     interface OnFragmentInteractionListener
     {
         fun onFragmentInteraction(uri:Uri)

@@ -32,12 +32,9 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        val username:String?=SharedPrefObj.getUsername(this@NavDrawerActivity)
-        val email:String?=SharedPrefObj.getEmail(this@NavDrawerActivity)
-
         val homeFragment=HomeFragment.newInstance()
         val transaction=supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_container,homeFragment).commit()
+        transaction.replace(R.id.frame_container,homeFragment).commit() //makes sure app opens with HomeFragment
     }
 
     override fun onBackPressed()

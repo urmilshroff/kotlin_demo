@@ -1,12 +1,16 @@
 package com.urmilshroff.kotlindemo
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_about.*
+
 
 private const val ARG_PARAM1="param1"
 private const val ARG_PARAM2="param2"
@@ -30,6 +34,25 @@ class AboutFragment:Fragment()
                               savedInstanceState:Bundle?):View?
     {
         return inflater.inflate(R.layout.fragment_about,container,false)
+    }
+
+    override fun onViewCreated(view:View,savedInstanceState:Bundle?)
+    {
+        super.onViewCreated(view,savedInstanceState)
+
+        floatingActionButtonOpenGitHub?.setOnClickListener{view->githubOpener()}
+    }
+
+    fun githubOpener() //opens Kotlin Demo GitHub repo
+    {
+        val repoLink:String?="https://github.com/urmilshroff/kotlin_demo"
+
+        val githubIntent=Intent(Intent.ACTION_VIEW)
+        githubIntent.data=Uri.parse(repoLink)
+
+        Toast.makeText(this.activity!!,"Opening repository on GitHub...",Toast.LENGTH_SHORT).show()
+
+        startActivity(githubIntent)
     }
 
     fun onButtonPressed(uri:Uri)
@@ -58,7 +81,6 @@ class AboutFragment:Fragment()
 
     interface OnFragmentInteractionListener
     {
-        // TODO: Update argument type and name
         fun onFragmentInteraction(uri:Uri)
     }
 
