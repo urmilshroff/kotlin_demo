@@ -1,22 +1,31 @@
 package com.urmilshroff.kotlindemo
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat.checkSelfPermission
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_camera.*
+import java.io.ByteArrayOutputStream
 
 private const val ARG_PARAM1="param1"
 private const val ARG_PARAM2="param2"
-
-val MY_PERMISSIONS_REQUEST_CAMERA:Int=100
+private val MY_PERMISSIONS_REQUEST_CAMERA:Int=100
+private val SELECT_PHOTO:Int=1
+private val CAMERA:Int=1
+internal var fileName:String?=null
+private var selectedFilePath:String?=null
+internal var sizevalue:Long=0
 
 class CameraFragment:Fragment()
 {
@@ -42,7 +51,6 @@ class CameraFragment:Fragment()
     override fun onViewCreated(view:View,savedInstanceState:Bundle?)
     {
         super.onViewCreated(view,savedInstanceState)
-
         floatingActionButtonLaunchCamera?.setOnClickListener{view->onClick()}
     }
 
@@ -108,8 +116,32 @@ class CameraFragment:Fragment()
 
         else
         {
-            Snackbar.make(this!!.view!!,"Permissions have been granted",Snackbar.LENGTH_LONG)
-                        .setAction("Action",null).show()
+            clickPhoto()
         }
+    }
+
+    fun clickPhoto()
+    {
+            val myIntent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(myIntent,CAMERA)
+    }
+
+    override fun onActivityResult(requestCode:Int,resultCode:Int,data:Intent?)
+    {
+        super.onActivityResult(requestCode,resultCode,data)
+
+        val photo=data!!.getExtras().get("data") as Bitmap
+        val imageString:String=encodeToBase64(photo)
+        SharedPrefObj.setImage(this.activity!!,imageString)
+        imageViewSelectedImage.setImageBitmap(photo)
+    }
+
+    fun encodeToBase64(image:Bitmap):String
+    {
+        val baos=ByteArrayOutputStream()
+        image.compress(Bitmap.CompressFormat.PNG,100,baos)
+        val b=baos.toByteArray()
+        val imageEncoded=Base64.encodeToString(b,Base64.DEFAULT)
+        return imageEncoded
     }
 }
