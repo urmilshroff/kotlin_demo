@@ -1,10 +1,13 @@
 package com.urmilshroff.kotlindemo
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat.checkSelfPermission
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_camera.*
 
 private const val ARG_PARAM1="param1"
 private const val ARG_PARAM2="param2"
+
+val MY_PERMISSIONS_REQUEST_CAMERA:Int=100
 
 class CameraFragment:Fragment()
 {
@@ -38,10 +43,7 @@ class CameraFragment:Fragment()
     {
         super.onViewCreated(view,savedInstanceState)
 
-        floatingActionButtonLaunchCamera?.setOnClickListener{view->
-                Snackbar.make(view,"Camera FAB clicked",Snackbar.LENGTH_LONG)
-                        .setAction("Action",null).show()
-            }
+        floatingActionButtonLaunchCamera?.setOnClickListener{view->onClick()}
     }
 
     fun onButtonPressed(uri:Uri)
@@ -83,5 +85,31 @@ class CameraFragment:Fragment()
                         putString(ARG_PARAM2,param2)
                     }
                 }
+    }
+
+    fun onClick()
+    {
+        if (checkSelfPermission(this.activity!!,android.Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED)
+        {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this.activity!!, android.Manifest.permission.CAMERA)) // if permission is not granted
+            {
+                Snackbar.make(this!!.view!!,"Please grant permissions",Snackbar.LENGTH_LONG)
+                        .setAction("Action",null).show()
+            }
+
+            else
+            {
+                Snackbar.make(this!!.view!!,"Else part",Snackbar.LENGTH_LONG)
+                        .setAction("Action",null).show()
+
+                ActivityCompat.requestPermissions(this.activity!!, arrayOf(android.Manifest.permission.CAMERA), MY_PERMISSIONS_REQUEST_CAMERA)
+            }
+        }
+
+        else
+        {
+            Snackbar.make(this!!.view!!,"Permissions have been granted",Snackbar.LENGTH_LONG)
+                        .setAction("Action",null).show()
+        }
     }
 }

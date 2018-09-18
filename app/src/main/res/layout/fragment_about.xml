@@ -61,7 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.984"
-            app:rippleColor="@color/ic_launcher_background" />
+            app:rippleColor="@android:color/background_light" />
 
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
