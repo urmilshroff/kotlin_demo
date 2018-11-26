@@ -12,7 +12,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_nav_drawer.*
 import kotlinx.android.synthetic.main.app_bar_nav_drawer.*
 
-class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener,HomeFragment.OnFragmentInteractionListener, CameraFragment.OnFragmentInteractionListener,AboutFragment.OnFragmentInteractionListener
+class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener,HomeFragment.OnFragmentInteractionListener, CameraFragment.OnFragmentInteractionListener,AboutFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener
 {
     override fun onFragmentInteraction(uri:Uri)
     {
@@ -93,6 +93,15 @@ class NavDrawerActivity:AppCompatActivity(),NavigationView.OnNavigationItemSelec
                 val aboutFragment=AboutFragment.newInstance()
                 val transaction=supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.frame_container,aboutFragment).commit()
+            }
+
+            R.id.nav_recycler->
+            {
+                Toast.makeText(this,"Recycler View fragment",Toast.LENGTH_SHORT).show()
+
+                val recyclerFragment=RecyclerViewFragment.newInstance()
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frame_container,recyclerFragment).commit()
             }
 
             R.id.nav_share->
