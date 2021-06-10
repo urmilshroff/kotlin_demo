@@ -1,4 +1,4 @@
-<img alt='Kotlin logo' height='100px' width='100px' src='./assets/logo.png'/>
+<img alt='Kotlin logo' height='100px' width='100px' src='./assets/logo.svg'/>
 
 # Kotlin Demo for Android
 
