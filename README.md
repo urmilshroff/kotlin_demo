@@ -1,5 +1,5 @@
-# Kotlin Demo app for Android
+<img alt='Kotlin logo' height='100px' width='100px' src='./assets/logo.png'/>
 
-A demo Android app purely written in Kotlin, just to understand the JetBrains way of doing things.
+# Kotlin Demo for Android
 
-![Kotlin logo](art/kotlin.png)
+A demo Android app written in Kotlin to learn native Android development in 2021.
